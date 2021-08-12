@@ -6,3 +6,13 @@
 - [ ] 首先是基本功能
 - [ ] 地图自定义+背景自定义
 - [ ] 用户自己跳转方式
+
+---
+
+## 数据定义
+
+| 数据名 | 用途 | 格式 |
+|---|---|---|
+| MakerOpened | 表示生成页已打开 | true/false |
+| ControllerOpened | 控制页已打开 | true/false |
+| Info | 各同学信息 | JSON {"provinceNo":["name"],...} |
