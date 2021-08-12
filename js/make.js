@@ -58,7 +58,10 @@ const app = Vue.createApp({
                 created: false,
             },
 
-            DefaultColor: '#15559a'
+            DefaultColor: '#15559a',
+            DefaultMapFill: '#CCC',
+            BGType: 'none',
+            BGValue: 'transparent',
         }
     },
 
@@ -335,6 +338,54 @@ const app = Vue.createApp({
                         console.log(error)
                     })
             }
+        },
+
+        imageChanged(){
+            if($('#remoteImage').val()){
+                this.BGValue = $('#remoteImage').val()
+                return
+            }
+            var fileObj = $('#BGFile')[0]
+            var img = document.createElement('img')
+            var windowURL = window.URL || window.webkitURL
+            var dataURL, base64, that = this
+            if(fileObj && fileObj.files && fileObj.files[0]){
+                dataURL = windowURL.createObjectURL(fileObj.files[0])
+                img.src = dataURL
+
+                var reader = new FileReader()
+                reader.readAsDataURL(fileObj.files[0])
+                reader.onload = (e) => {
+                    base64 = e.target.result
+                    that.BGValue = base64
+                }
+            }
+        }
+    },
+
+    watch:{
+        BGType: function(val){
+            if(val == "none"){
+                this.BGValue = "transparent"
+            }
+            document.querySelector('#skeleton.skeleton').style.setProperty('--bg', "transparent");
+        },
+        BGValue: function(val){
+            if(this.BGType == "none"){
+                return
+            }
+            var out
+            if(this.BGType == "color"){
+                out = val
+            }
+            if(this.BGType == "image"){
+                out = 'url(' + val + ')'
+            }
+
+            document.querySelector('#skeleton.skeleton').style.setProperty('--bg', out);
+        },
+        DefaultMapFill: function(val){
+            document.querySelector('svg').style.setProperty('--fill-color', val);
         }
     },
 
@@ -346,6 +397,13 @@ const app = Vue.createApp({
 
         // Add Map Default Color
         document.body.style.setProperty('--fill-color-default', this.DefaultColor)
+        document.body.style.setProperty('--color', this.DefaultColor)
+
+        window.addEventListener('keydown', (e)=> {
+            if(e.code == "Enter"){
+                this.addInfo()
+            }
+        })
 
         // This is for test
     },

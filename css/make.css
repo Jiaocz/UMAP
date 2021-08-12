@@ -1,9 +1,19 @@
-  :root {
-    --color: #15559a;
+  body{
+    background-color: #efefef;
   }
 
-  *:not("div.jscolor-picker-wrap") {
-    transition: all .3s ease-in-out;
+  *:not(div.jscolor-picker-wrap) {
+    transition: all .2s ease-in-out;
+  }
+
+  .skeleton{
+    --bg: transparent;
+    background: var(--bg);
+    background-position: center center;
+    margin: 20px 10px;
+    box-shadow: -8px -8px 16px -10px rgba(255, 255, 255, 1),
+    8px 8px 16px -10px rgba(0, 0, 0, 0.15);
+    padding: 10px;
   }
   
   .upper,
@@ -14,7 +24,7 @@
     padding: 0.25em 0.75em;
     margin: 5px;
     /* Shows the position */
-    border: 1px dashed #ddd;
+    /* border: 1px dashed #ddd; */
   }
 
   .upper:empty,
@@ -24,16 +34,16 @@
     min-height: 10em;
   }
   
-  .upper:empty::after,
+  /* .upper:empty::after,
   .left:empty::after,
   .right:empty::after,
   .bottom:empty::after{
-    content: '空白';
+    content: attr(class);
     width: 100%;
     font-size: 5em;
     text-align: center;
-    color: #ececec;
-  }
+    color: #fff;
+  } */
 
   .upper,
   .bottom {
@@ -213,4 +223,112 @@
 
 .popup .color-picker input {
   max-width: 6em;
+}
+
+.advance-controll {
+  box-shadow: -8px -8px 16px -10px rgba(255, 255, 255, 1),
+    8px 8px 16px -10px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.advance-controll > h1 {
+  color: #666;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(230, 230, 230, 1.5) 0%,
+    rgba(231, 231, 231, 0.5) 100%
+  );
+  box-shadow: -10px -8px 5px -10px rgba(255, 255, 255, 1),
+    7px 7px 5px -7px rgba(0, 0, 0, 0.25);
+  padding: 0.5em 1em;
+  margin-bottom: 1.5em;
+}
+
+.advance-controll > span,
+.advance-controll > div {
+  font-size: 24px;
+  padding: 0.5em;
+  color: #777;
+}
+
+.advance-controll button,
+.advance-controll .button {
+  margin: 8px;
+  padding: 10px 15px;
+  border: 0;
+  display: inline;
+  outline: none;
+  border-radius: 24px;
+  font-size: 20px;
+  font-family: "Helvetica";
+  font-weight: normal;
+  color: #777;
+  background: linear-gradient(
+    135deg,
+    rgba(230, 230, 230, 1) 0%,
+    rgba(246, 246, 246, 1) 100%
+  );
+  box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 1),
+    4px 4px 10px -8px rgba(0, 0, 0, 0.3);
+
+  transition: box-shadow 0.15s linear;
+}
+
+.advance-controll button:hover,
+.advance-controll .button {
+  box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 0.3),
+    4px 4px 10px -8px rgba(0, 0, 0, 0.8);
+}
+
+.advance-controll button:active,
+.advance-controll .button {
+  box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 1) inset,
+    4px 4px 10px -8px rgba(0, 0, 0, 0.3) inset;
+}
+
+.advance-controll i,
+.advance-controll img {
+  margin-right: 8px;
+}
+
+.advance-controll input[type="radio"] ~ label {
+  font-size: 20px;
+  text-justify: center;
+  margin-right: 15px;
+}
+
+.advance-controll input[type="text"] {
+  margin: 0 20px;
+  box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 1) inset,
+    4px 4px 10px -8px rgba(0, 0, 0, 0.3) inset,
+    4px 4px 10px -8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(230, 230, 230, 1) 0%,
+    rgba(240, 240, 240, 1) 100%
+  );
+  border: 0;
+  border-radius: 20px;
+  height: 30px;
+  padding: 0 10px;
+  color: #777;
+  letter-spacing: 2px;
+}
+
+.advance-controll a{
+  text-decoration: none;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+/* v-enter-active 【入场动画的时间段】 */
+/* v-leave-active 【离场动画的时间段】 */
+.fade-enter-active,
+.fade-leave-active{
+  transition: all 0.3s ease-in-out;
 }

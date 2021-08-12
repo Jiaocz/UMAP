@@ -15,8 +15,10 @@
     <script src="./js/FileSaver.min.js"></script>
     <script src="./js/make.js" defer></script>
     <style type="text/css">
+        svg{
+            --fill-color: #CCC;
+        }
         .land {
-          --fill-color: #CCC;
           fill: var(--fill-color);
           fill-opacity: 1;
           stroke: white;
@@ -32,7 +34,7 @@
 </head>
 <body>
     <div id="main">
-        <div class="skeleton">
+        <div id="skeleton" class="skeleton">
             <div style="grid-area: upper;" class="upper">
                 <section class="info-card" v-for="card in upper" :id="card.name" :style="{ '--color': card.color }">
                     <h1>{{ card.name }}</h1>
@@ -132,13 +134,55 @@
                         <input v-model="popup.data.info[index]" /><i class="fas fa-minus" @click="deleteInfo(info)"></i>
                     </li>
                     <li>
-                        <input placeholder="添加" id="add"  v-bind:disabled="!popup.created" /><i class="fas fa-plus" @click="addInfo()"></i>
+                        <input placeholder="添加" id="add"  v-bind:disabled="!popup.created" key="info-add" /><i class="fas fa-plus" @click="addInfo()"></i>
                     </li>
                 </ul>
                 <span @click="closePopup()">关闭</span><span @click="deleteCard(popup.data.name)" style="color:#f07c82">删除</span>
             </div>
         </transition>
+        
+        <div class="advance-controll">
+            <h1>
+              高级设置
+            </h1>
+            <div id="SaveImage">
+              导出图片：
+              <button @click="captureImage()"><i class="fas fa-download"></i>下载图片</button>
+              <button @click="captureImage(true)"><i class="fas fa-external-link-alt"></i>在新标签中打开</button>
+            </div>
+
+            <div id="MapFill">
+                默认地图填充颜色：
+                <input type="text" placeholder="#15559a" v-model="DefaultMapFill" data-jscolor="{format: 'rgba'}"/>
+            </div>
+          
+            <div id="ChangBG">
+              更换背景：
+              <input type="radio" id="none" v-model="BGType" value="none" /><label for="none" name="bg">透明</label>
+              <input type="radio" id="color" v-model="BGType" value="color" /><label for="color" name="bg">纯色</label>
+              <input type="radio" id="image" v-model="BGType" value="image" /><label for="image" name="bg">图片</label>
+                <transition-group name="fade">
+                    <input type="text" placeholder="内容" v-model="BGValue" data-jscolor="{format: 'rgba'}" v-show="BGType == 'color'" key="color" />
+                    <label for="BGFile" v-show="BGType == 'image'" key="image-label"><p class="button">选择文件</p></label><input type="file" @change="imageChanged" style="display: none;" id="BGFile" name="BGFile" key="image-input" />
+                    <span v-show="BGType == 'image'" key="image-span">或</span>
+                    <input type="text" placeholder="输入图片URL" id="remoteImage" v-show="BGType == 'image'" key="image-URL" @change="imageChanged" />
+                </transition-group>
+                    
+                
+            </div>
             
+            <div id="lines">
+              画板：
+              <button onclick="window.alert('引导线绘制功能即将上线，敬请期待')"><i class="fas fa-draw-polygon"></i>打开/关闭画板</button>
+            </div>
+            
+            <div id="external">
+              关于作者：
+              <a href="#"><button><i class="fab fa-github"></i>在Github上查看这个项目</button></a>
+              <a href="https://orangii.cn/" target="_blank"><button><i class="fas fa-link"></i>作者主页</button></a>
+              <a href="https://orangii.cn/donate.html?from=https://umap.orangii.cn/" target="_blank"><button><i class="fas fa-donate"></i>赞助作者</button></a>
+            </div>
+          </div>
     </div>
         
 </body>
