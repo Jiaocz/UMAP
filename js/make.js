@@ -158,6 +158,7 @@ const app = Vue.createApp({
                 case 'up': dest = this.upper; break;
                 case 'right': dest = this.right; break;
                 case 'down': dest = this.bottom; break;
+                default: return;
             }
 
             if (!this.popup.created) {
