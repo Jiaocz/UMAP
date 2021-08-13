@@ -2,6 +2,7 @@
 
 <p align="center">本项目使用纯前端方式开发大学蹭饭图生成工具，甚至可以完全放置于CDN或者对象存储空间。</p>
 <p align="center">在线体验：https://umap.orangii.cn/</p>
+<p align="center">仓库实时体验版：https://dev.umap.orangii.cn/</p>
 
 <br />
 
