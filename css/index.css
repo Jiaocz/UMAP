@@ -118,7 +118,7 @@ hr {
 }
 
 #main table > tbody{
-    min-width: 800;
+    min-width: 800px;
 }
 
 #main table tr:first-child td,
