@@ -105,7 +105,7 @@ const app = Vue.createApp({
             this.popup.created = found
 
             var posX = 0, posY = 0
-            var event = event || window.event;
+            var event = event || window.event
             if (event.pageX || event.pageY) {
                 posX = event.pageX
                 posY = event.pageY
@@ -113,6 +113,9 @@ const app = Vue.createApp({
             else if (event.clientX || event.clientY) {
                 posX = event.clientX + document.documentElement.scrollLeft + document.body.scrollLeft
                 posY = event.clientY + document.documentElement.scrollTop + document.body.scrollTop
+            } else {
+                posX = document.body.clientWidth / 2
+                posY = document.body.clientHeight / 2
             }
 
             this.popup.show = true

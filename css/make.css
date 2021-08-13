@@ -283,7 +283,7 @@
 }
 
 .advance-controll button:active,
-.advance-controll .button {
+.advance-controll .button:active {
   box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 1) inset,
     4px 4px 10px -8px rgba(0, 0, 0, 0.3) inset;
 }
@@ -329,4 +329,16 @@
 .fade-enter-active,
 .fade-leave-active{
   transition: all 0.3s ease-in-out;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  margin: 0.2em;
+  color: #aaa;
+  font-size: 0.7em;
+}
+
+footer a{
+  color: inherit;
 }
