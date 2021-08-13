@@ -121,14 +121,14 @@
   }
 
   .info-card li::after {
-    content: "";
+    content: '';
     display: block;
     border-top: 1px solid #ccc;
     position: relative;
     bottom: 3px;
   }
   
-  .map_container {
+  .map-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,9 +139,9 @@
     /* 别问我为什么这么写，因为心血来潮 */
     display: grid;
     grid-template-areas:
-      "upper upper upper upper upper upper upper upper upper upper"
-      "left map map map map map map map map right"
-      "bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom";
+      'upper upper upper upper upper upper upper upper upper upper'
+      'left map map map map map map map map right'
+      'bottom bottom bottom bottom bottom bottom bottom bottom bottom bottom';
   }
   
   .popup {
@@ -293,12 +293,12 @@
   margin-right: 8px;
 }
 
-.advance-controll input[type="radio"] ~ label {
+.advance-controll input[type='radio'] ~ label {
   font-size: 20px;
   margin-right: 15px;
 }
 
-.advance-controll input[type="text"] {
+.advance-controll input[type='text'] {
   margin: 0 20px;
   box-shadow: -4px -4px 10px -8px rgba(255, 255, 255, 1) inset,
     4px 4px 10px -8px rgba(0, 0, 0, 0.3) inset,
