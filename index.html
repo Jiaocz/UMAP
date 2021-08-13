@@ -4,20 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://orangii.cn/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3.2.1"></script>
+    <script src="./js/index.js" defer></script>
     <title>UMAP - 一个大学蹭饭图生成器</title>
 </head>
 <body>
-    网页正在建立中
-    <!-- 
-        Todo: 浏览器检测
-        1. Canvas
-        2. Vue加载
-        3. jscolor加载
-        4. dom2image加载
-        5. FileSaver加载
-        6. event = event || window.event
-        7. windowURL = window.URL || window.webkitURL
-        
-    -->
+    <div id="main">
+        <header>
+            <h1>UMAP大学蹭饭图生成工具</h1>
+            <p>在这里您可以快速预览生成大学蹭饭图，无需PS即可完成。</p>
+            您还可以：<a href="#" onclick="alert('未完成')"><button><i class="far fa-file-alt"></i>查看介绍和教程</button></a><button><i class="fab fa-github"></i>Github Star</button>
+        </header>
+        <hr />
+        <section id="BrowserCheck">
+            <h1>浏览器兼容性检查 <i class="fas fa-check green" v-show="BrowserCheckPassed"></i></h1>
+            <transition name="fade">
+                <p key="text" v-if="!BrowserCheckPassed">正在检查浏览器兼容性，待完成之后即可跳转至介绍 <i class="fas fa-sync loading"></i></p>
+            </transition>
+            <div id="table">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Info</th>
+                    </tr>
+                    <tr v-for="item in BrowserCheck">
+                        <td>{{item.name}}</td>
+                        <td>
+                            <i class="fas fa-sync loading" v-if="item.status == 'loading'"></i>
+                            <i class="fas fa-info info" v-if="item.status == 'info'"></i>
+                            <i class="fas fa-check green" v-if="item.status == true"></i>
+                            <i class="fas fa-times red" v-if="item.status == false"></i>
+                        </td>
+                        <td :class="item.class">{{item.info}}</td>
+                    </tr>
+                </table>
+                <transition name="fade">
+                    <a href="make.html" v-if="BrowserCheckPassed"><button><i class="fas fa-link"></i>打开制作页</button></a>
+                </transition>
+            </div>
+        </section>
+    </div>
+    <footer>&copy; 2021&nbsp;<a href="https://orangii.cn">Orangii|橙梓</a> All rights reserved.</footer>
 </body>
 </html>
