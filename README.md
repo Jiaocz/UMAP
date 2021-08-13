@@ -33,3 +33,14 @@
 - 点个Star（右上角）
 - 点击Sponsor（上方）或访问作者的[赞助页](https://orangii.cn/donate.html?from=https://github.com/Jiaocz/UMAP)
 - 没有更多方式 :D
+
+## Special Thanks
+----------
+| 名称 | 用途 |
+|---|---|
+| [FontAwesome](https://fontawesome.com/) | 图标库支持 |
+| [Vue.js](https://v3.cn.vuejs.org/) | 框架支持 |
+| [jQuery](https://jquery.com/) | 框架支持（其实用的不多） |
+| [jscolor](https://jscolor.com/) | 颜色选择框支持 |
+| [dom-to-image](https://github.com/tsayen/dom-to-image) | 原生JS截图支持 |
+| [FileSaver.js](https://github.com/eligrey/FileSaver.js) | 图片保存支持 |
