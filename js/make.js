@@ -1,7 +1,6 @@
 const app = Vue.createApp({
     data() {
         return {
-            // Todo: unset color will cause card to be transparent
             upper: [
                 // {
                 //     'name': '新疆',
@@ -399,12 +398,11 @@ const app = Vue.createApp({
         document.body.style.setProperty('--fill-color-default', this.DefaultColor)
         document.body.style.setProperty('--color', this.DefaultColor)
 
+        // When Press Enter, Add one's info
         window.addEventListener('keydown', (e)=> {
             if(e.code == "Enter"){
                 this.addInfo()
             }
         })
-
-        // This is for test
     },
 }).mount('#main');

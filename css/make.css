@@ -263,7 +263,6 @@
   outline: none;
   border-radius: 24px;
   font-size: 20px;
-  font-family: "Helvetica";
   font-weight: normal;
   color: #777;
   background: linear-gradient(
@@ -296,7 +295,6 @@
 
 .advance-controll input[type="radio"] ~ label {
   font-size: 20px;
-  text-justify: center;
   margin-right: 15px;
 }
 
