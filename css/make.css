@@ -8,8 +8,9 @@
 
   .skeleton{
     --bg: transparent;
-    background: var(--bg);
+    background: var(--bg) no-repeat;
     background-position: center center;
+    background-size: cover;
     margin: 20px 10px;
     box-shadow: -8px -8px 16px -10px rgba(255, 255, 255, 1),
     8px 8px 16px -10px rgba(0, 0, 0, 0.15);

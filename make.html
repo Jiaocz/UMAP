@@ -167,7 +167,7 @@
               <input type="radio" id="image" v-model="BGType" value="image" /><label for="image" name="bg">图片</label>
                 <transition-group name="fade">
                     <input type="text" placeholder="内容" v-model="BGValue" data-jscolor="{format: 'rgba'}" v-show="BGType == 'color'" key="color" />
-                    <label for="BGFile" v-show="BGType == 'image'" key="image-label"><p class="button">选择文件</p></label><input type="file" @change="imageChanged" style="display: none;" id="BGFile" name="BGFile" key="image-input" />
+                    <label for="BGFile" v-show="BGType == 'image'" key="image-label"><p class="button">选择文件</p></label><input type="file" accept="image/*" @change="imageChanged" style="display: none;" id="BGFile" name="BGFile" key="image-input" />
                     <span v-show="BGType == 'image'" key="image-span">或</span>
                     <input type="text" placeholder="输入图片URL" id="remoteImage" v-show="BGType == 'image'" key="image-URL" @change="imageChanged" />
                 </transition-group>
