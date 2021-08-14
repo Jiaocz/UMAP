@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: 寻求帮助
     url: "https://orangii.cn/?showcontacts"
-    about: " 如果你遇到技术上的问题，或者在阅读代码时出现不懂的问题，开源尝试联系作者而非提交Issue"
+    about: " 如果你遇到技术上的问题，或者在阅读代码时出现不懂的问题，请尝试联系作者而非提交Issue"
