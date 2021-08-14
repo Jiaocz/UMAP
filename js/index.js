@@ -30,6 +30,10 @@ const app = Vue.createApp({
                             this.status = false
                             this.info = '经过测试，QQ/微信内置浏览器及QQ浏览器不支持显示地图'
                             this.class = 'error'
+                        } else {
+                            this.status = true
+                            this.info = '您的浏览器版本未被反馈过问题'
+                            this.class = 'correct'
                         }
                     },
                 },
