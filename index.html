@@ -20,16 +20,19 @@
         </header>
         <hr />
         <section id="BrowserCheck">
-            <h1>浏览器兼容性检查 <i class="fas fa-check green" v-show="BrowserCheckPassed"></i></h1>
+            <h1>浏览器兼容性检查 <i class="fas fa-check green" v-show="BrowserCheckPassed"></i><i class="fas fa-times error" v-show="BrowserCheckFailed"></i></h1>
             <transition name="fade">
-                <p key="text" v-if="!BrowserCheckPassed">正在检查浏览器兼容性，待完成之后即可跳转至介绍 <i class="fas fa-sync loading"></i></p>
+                <p key="text" v-if="!BrowserCheckPassed && !BrowserCheckFailed">正在检查浏览器兼容性，待完成之后即可打开制作页 <i class="fas fa-sync loading"></i></p>
+            </transition>
+            <transition name="fade">
+                <p key="text" v-if="BrowserCheckFailed">您的浏览器存在下列问题 <button @click="recheck"><i class="fas fa-redo"></i>重新检测</button></p>
             </transition>
             <div id="table">
                 <table>
                     <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Info</th>
+                        <th>检测项</th>
+                        <th>状态</th>
+                        <th>信息</th>
                     </tr>
                     <tr v-for="item in BrowserCheck">
                         <td>{{item.name}}</td>

@@ -92,16 +92,33 @@ const app = Vue.createApp({
                 },
             ],
             BrowserCheckPassed: false,
+            BrowserCheckFailed: false,
+        }
+    },
+
+    methods: {
+        recheck: function () {
+            this.BrowserCheck.forEach((item) => {
+                item.status = 'loading'
+                item.info = '检测中'
+                item.class = ''
+            })
+            setTimeout(this.check, 200)
+        },
+
+        check: function() {
+            var passed = true
+            this.BrowserCheck.forEach((item) => {
+                item.check()
+                if(item.status === false) {
+                    passed = false
+                }
+            })
+            this.BrowserCheckPassed = passed
+            this.BrowserCheckFailed = !passed
         }
     },
     mounted: function() {
-        var passed = true
-        this.BrowserCheck.forEach((item) => {
-            item.check()
-            if(item.status === false) {
-                passed = false
-            }
-        })
-        this.BrowserCheckPassed = passed
+        this.check()
     },
 }).mount('#main');
