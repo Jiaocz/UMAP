@@ -20,6 +20,20 @@ const app = Vue.createApp({
                     },
                 },
                 {
+                    name:'浏览器检测',
+                    status: 'loading',
+                    info: '正在检测',
+                    class:'',
+                    check: function(){
+                        var ua = navigator.userAgent.toLowerCase()
+                        if(ua.indexOf(' qq') > -1 || ua.indexOf('mqqbrowser') > -1 || ua.match(/MicroMessenger/i) == 'micromessenger'){
+                            this.status = false
+                            this.info = '经过测试，QQ/微信内置浏览器及QQ浏览器不支持显示地图'
+                            this.class = 'error'
+                        }
+                    },
+                },
+                {
                     name:'Canvas',
                     status: 'loading',
                     info: '正在检测',
